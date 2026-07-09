@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ambraja Skin Clinic | Dr. Harsh Tyagi — Ghaziabad</title>
+<meta name="description" content="Ambraja Skin Clinic, led by Dr. Harsh Tyagi at Harsh ENT Hospital, Ghaziabad. Hair fall solutions, dermal fillers, acne scar treatment, laser hair removal, skin brightening and botox." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ivory: '#FBF6EE',
+          ivorydeep: '#F4EBDD',
+          teal: {
+            DEFAULT: '#173C3E',
+            700: '#1F4C4E',
+            600: '#2A6062',
+            500: '#3E7A7C',
+          },
+          clay: {
+            DEFAULT: '#C77B54',
+            50: '#FBEDE3',
+            100: '#F3D3BC',
+            400: '#D68A5F',
+            500: '#C77B54',
+            600: '#AD6540',
+          },
+          peach: '#F0C6A3',
+          ink: '#20241F',
+        },
+        fontFamily: {
+          display: ['Fraunces', 'serif'],
+          body: ['Manrope', 'sans-serif'],
+        },
+      },
+    },
+  }
+</script>
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Manrope', sans-serif; background-color: #FBF6EE; color: #1B221E; }
+  h1, h2, h3, .font-display { font-family: 'Fraunces', serif; }
+
+  ::selection { background: #C77B54; color: #FBF6EE; }
+
+  .ring-motif {
+    position: absolute;
+    border-radius: 9999px;
+    border: 1px solid rgba(23, 60, 62, 0.18);
+  }
+
+  .pulse-cta {
+    box-shadow: 0 0 0 0 rgba(199, 123, 84, 0.55);
+    animation: pulse-cta 2.6s infinite;
+  }
+  @keyframes pulse-cta {
+    0%   { box-shadow: 0 0 0 0 rgba(199, 123, 84, 0.45); }
+    70%  { box-shadow: 0 0 0 14px rgba(199, 123, 84, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(199, 123, 84, 0); }
+  }
+
+  .service-card { transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s cubic-bezier(.2,.7,.2,1), border-color .45s; }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -20px rgba(23,60,62,0.28); }
+
+  .eyebrow { letter-spacing: 0.22em; }
+
+  .mobile-menu { transition: max-height 0.4s ease-out, opacity 0.3s ease-in-out; }
+
+  .fade-up { animation: fadeUp .8s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  .grain {
+    background-image: radial-gradient(rgba(23,60,62,0.05) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+
+  .focus-ring:focus-visible { outline: 2px solid #C77B54; outline-offset: 3px; }
+</style>
+</head>
+
+<body class="antialiased">
+
+<!-- ===================== HEADER ===================== -->
+<header class="fixed top-0 inset-x-0 z-50 bg-ivory/90 backdrop-blur-md border-b border-teal/10">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+    <div class="flex items-center justify-between h-[76px]">
+      <!-- Logo -->
+      <a href="#top" class="flex items-center gap-3 focus-ring">
+        <span class="w-11 h-11 rounded-full border border-teal/30 flex items-center justify-center relative">
+          <span class="absolute inset-1.5 rounded-full border border-clay/50"></span>
+          <span class="font-display italic text-teal text-base tracking-tight">A</span>
+        </span>
+        <span class="leading-tight">
+          <span class="block font-display text-lg text-teal tracking-tight">Ambraja</span>
+          <span class="block text-[10px] eyebrow uppercase text-clay-600 -mt-0.5">Skin Clinic</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-10 text-[13px] eyebrow uppercase text-teal/80 font-semibold">
+        <a href="#services" class="hover:text-clay transition-colors focus-ring">Services</a>
+        <a href="#about" class="hover:text-clay transition-colors focus-ring">About</a>
+        <a href="#location" class="hover:text-clay transition-colors focus-ring">Location</a>
+        <a href="#contact" class="hover:text-clay transition-colors focus-ring">Contact</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-3">
+        <a href="tel:+919217754696"
+           class="pulse-cta flex items-center gap-2 bg-clay hover:bg-clay-600 text-ivory text-sm font-semibold px-5 py-3 rounded-full transition-colors focus-ring">
+          <i data-lucide="phone-call" class="w-4 h-4"></i>
+          Call to Book
+        </a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button id="menuBtn" aria-label="Open menu" aria-expanded="false" class="md:hidden text-teal focus-ring p-2">
+        <i data-lucide="menu" class="w-7 h-7" id="menuIcon"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu md:hidden overflow-hidden max-h-0 opacity-0 border-teal/10 bg-ivory">
+    <div class="px-6 py-6 flex flex-col gap-5 text-teal font-semibold border-t border-teal/10">
+      <a href="#services" class="mobile-link py-1 hover:text-clay transition-colors">Services</a>
+      <a href="#about" class="mobile-link py-1 hover:text-clay transition-colors">About</a>
+      <a href="#location" class="mobile-link py-1 hover:text-clay transition-colors">Location</a>
+      <a href="#contact" class="mobile-link py-1 hover:text-clay transition-colors">Contact</a>
+      <a href="tel:+919217754696" class="mt-2 flex items-center justify-center gap-2 bg-clay text-ivory text-sm font-semibold px-5 py-3.5 rounded-full shadow-md active:bg-clay-600">
+        <i data-lucide="phone-call" class="w-4 h-4"></i>
+        Call +91 92177 54696
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section id="top" class="relative pt-[76px] overflow-hidden bg-ivory">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 grid lg:grid-cols-2 gap-14 items-center py-16 sm:py-20 lg:py-28">
+
+    <!-- Left: Copy -->
+    <div class="relative z-10 fade-up">
+      <p class="eyebrow uppercase text-clay-600 text-xs font-bold mb-6">Ambraja Skin Clinic · Ghaziabad</p>
+      <h1 class="font-display text-teal text-[2.6rem] leading-[1.08] sm:text-6xl sm:leading-[1.06] tracking-tight">
+        Transform.<br>
+        <span class="italic text-clay">Reveal</span> Your Confidence.
+      </h1>
+      <p class="mt-6 text-lg sm:text-xl text-teal/70 font-display italic">Rediscover your youthful glow.</p>
+      <p class="mt-5 text-base sm:text-[17px] text-ink/70 max-w-lg leading-relaxed">
+        From hair restoration to advanced anti-ageing treatments, every protocol at Ambraja is planned and delivered
+        under the personal supervision of Dr. Harsh Tyagi — inside the trusted setting of Harsh ENT Hospital.
+      </p>
+
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+        <a href="#contact"
+           class="flex items-center gap-2 bg-teal hover:bg-teal-700 text-ivory text-sm font-semibold px-7 py-4 rounded-full transition-colors focus-ring shadow-md">
+          Book Consultation
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+        <a href="tel:+919217754696"
+           class="flex items-center gap-2 text-teal text-sm font-semibold px-2 py-4 border-b-2 border-clay/60 hover:border-clay transition-colors focus-ring">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          +91 92177 54696
+        </a>
+      </div>
+
+      <div class="mt-12 flex flex-wrap gap-x-10 gap-y-4">
+        <div>
+          <p class="font-display text-2xl text-teal">6</p>
+          <p class="text-xs eyebrow uppercase text-ink/50 mt-1">Signature Treatments</p>
+        </div>
+        <div>
+          <p class="font-display text-2xl text-teal">100%</p>
+          <p class="text-xs eyebrow uppercase text-ink/50 mt-1">Doctor-Led Care</p>
+        </div>
+        <div>
+          <p class="font-display text-2xl text-teal">Est. Trust</p>
+          <p class="text-xs eyebrow uppercase text-ink/50 mt-1">Harsh ENT Hospital</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Visual -->
+    <div class="relative h-[420px] sm:h-[520px] lg:h-[600px] fade-up" style="animation-delay:.15s">
+      <!-- concentric ring motif -->
+      <div class="ring-motif w-[520px] h-[520px] -right-24 -top-10 hidden sm:block"></div>
+      <div class="ring-motif w-[380px] h-[380px] -right-6 top-16 border-clay/25 hidden sm:block"></div>
+
+      <div class="relative w-full h-full rounded-[2rem] overflow-hidden bg-gradient-to-br from-teal via-teal-700 to-teal-600 grain">
+        <div class="absolute inset-0 opacity-90" style="background: radial-gradient(circle at 30% 20%, rgba(240,198,163,0.35), transparent 55%), radial-gradient(circle at 80% 80%, rgba(199,123,84,0.25), transparent 50%);"></div>
+
+        <!-- abstract clinic mark -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="relative w-52 h-52 sm:w-64 sm:h-64">
+            <div class="absolute inset-0 rounded-full border border-peach/40"></div>
+            <div class="absolute inset-6 rounded-full border border-peach/30"></div>
+            <div class="absolute inset-12 rounded-full border border-peach/25"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="font-display italic text-ivory text-5xl sm:text-6xl">A</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- floating consult card -->
+        <div class="absolute left-6 right-6 bottom-6 sm:left-8 sm:right-auto sm:w-[300px] bg-ivory/95 backdrop-blur rounded-2xl p-5 shadow-2xl">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-full bg-clay/15 flex items-center justify-center">
+              <i data-lucide="stethoscope" class="w-5 h-5 text-clay-600"></i>
+            </div>
+            <div>
+              <p class="text-teal font-display text-[15px] leading-tight">Dr. Harsh Tyagi</p>
+              <p class="text-[11px] eyebrow uppercase text-ink/50 mt-0.5">Lead Dermatologist</p>
+            </div>
+          </div>
+          <p class="text-[13px] text-ink/60 mt-4 leading-relaxed">
+            Clinically proven, doctor-led aesthetic treatments — tailored to your skin, delivered with precision.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trust strip -->
+  <div class="border-t border-teal/10 bg-ivorydeep">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-6 flex flex-wrap justify-center sm:justify-between gap-6 text-teal/80">
+      <div class="flex items-center gap-2.5 text-sm font-semibold">
+        <i data-lucide="shield-check" class="w-[18px] h-[18px] text-clay"></i> Clinically Proven Protocols
+      </div>
+      <div class="flex items-center gap-2.5 text-sm font-semibold">
+        <i data-lucide="heart-pulse" class="w-[18px] h-[18px] text-clay"></i> Safe &amp; Effective
+      </div>
+      <div class="flex items-center gap-2.5 text-sm font-semibold">
+        <i data-lucide="user-round-check" class="w-[18px] h-[18px] text-clay"></i> Led by Dr. Harsh Tyagi
+      </div>
+      <div class="flex items-center gap-2.5 text-sm font-semibold">
+        <i data-lucide="building-2" class="w-[18px] h-[18px] text-clay"></i> Inside Harsh ENT Hospital
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section id="services" class="bg-ivory py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+    <div class="max-w-2xl mb-14 sm:mb-16">
+      <p class="eyebrow uppercase text-clay-600 text-xs font-bold mb-4">Our Expertise</p>
+      <h2 class="font-display text-teal text-4xl sm:text-5xl leading-tight tracking-tight">
+        Six signature treatments, <span class="italic text-clay">one confident you.</span>
+      </h2>
+      <p class="mt-5 text-ink/60 text-[17px] leading-relaxed">
+        Every treatment is planned around your skin and goals, then delivered with clinical precision — never a
+        one-size-fits-all routine.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card 1 -->
+      <div class="service-card group bg-white border border-teal/10 rounded-2xl p-8">
+        <div class="w-12 h-12 rounded-full bg-clay/10 flex items-center justify-center mb-6 group-hover:bg-clay group-hover:text-ivory text-clay-600 transition-colors">
+          <i data-lucide="leaf" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-display text-xl text-teal mb-2">Effective Hair Fall Solutions</h3>
+        <p class="text-[15px] text-ink/60 leading-relaxed">
+          Targeted therapies that strengthen roots, restore density and renew your hair's natural vitality — for
+          growth that lasts.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card group bg-white border border-teal/10 rounded-2xl p-8">
+        <div class="w-12 h-12 rounded-full bg-clay/10 flex items-center justify-center mb-6 group-hover:bg-clay group-hover:text-ivory text-clay-600 transition-colors">
+          <i data-lucide="syringe" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-display text-xl text-teal mb-2">Expert Dermal Filler Treatments</h3>
+        <p class="text-[15px] text-ink/60 leading-relaxed">
+          Precision rejuvenation that restores volume and contour, for smooth, radiant skin and results that stay
+          naturally you.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card group bg-white border border-teal/10 rounded-2xl p-8">
+        <div class="w-12 h-12 rounded-full bg-clay/10 flex items-center justify-center mb-6 group-hover:bg-clay group-hover:text-ivory text-clay-600 transition-colors">
+          <i data-lucide="sparkles" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-display text-xl text-teal mb-2">Acne Scar Treatment</h3>
+        <p class="text-[15px] text-ink/60 leading-relaxed">
+          Clinically proven procedures that actively renew skin texture and glow, softening scars for a smoother,
+          more even surface.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card group bg-white border border-teal/10 rounded-2xl p-8">
+        <div class="w-12 h-12 rounded-full bg-clay/10 flex items-center justify-center mb-6 group-hover:bg-clay group-hover:text-ivory text-clay-600 transition-colors">
+          <i data-lucide="zap" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-display text-xl text-teal mb-2">Laser Hair Removal</h3>
+        <p class="text-[15px] text-ink/60 leading-relaxed">
+          Advanced laser technology precisely targets hair follicles, reducing regrowth for skin that stays smooth
+          and hair-free, longer.
+        </p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="service-card group bg-white border border-teal/10 rounded-2xl p-8">
+        <div class="w-12 h-12 rounded-full bg-clay/10 flex items-center justify-center mb-6 group-hover:bg-clay group-hover:text-ivory text-clay-600 transition-colors">
+          <i data-lucide="sun" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-display text-xl text-teal mb-2">Skin Brightening &amp; Rejuvenation</h3>
+        <p class="text-[15px] text-ink/60 leading-relaxed">
+          Curated treatments that lift dullness and even out tone, revealing a naturally brighter, healthier
+          complexion.
+        </p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="service-card group bg-white border border-teal/10 rounded-2xl p-8">
+        <div class="w-12 h-12 rounded-full bg-clay/10 flex items-center justify-center mb-6 group-hover:bg-clay group-hover:text-ivory text-clay-600 transition-colors">
+          <i data-lucide="wand-2" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-display text-xl text-teal mb-2">Botox Wrinkle Treatment</h3>
+        <p class="text-[15px] text-ink/60 leading-relaxed">
+          Premium, safe and effective anti-ageing sessions that smooth fine lines and wrinkles for a rested,
+          refreshed look.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT / CLINICAL EDGE ===================== -->
+<section id="about" class="bg-teal py-20 sm:py-28 relative overflow-hidden">
+  <div class="ring-motif w-[460px] h-[460px] -left-40 -bottom-40 border-ivory/10"></div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+
+    <!-- Visual -->
+    <div class="order-2 lg:order-1 relative h-[380px] sm:h-[460px]">
+      <div class="w-full h-full rounded-[2rem] bg-gradient-to-br from-teal-600 to-teal-500 relative overflow-hidden">
+        <div class="absolute inset-0" style="background: radial-gradient(circle at 70% 30%, rgba(240,198,163,0.3), transparent 55%);"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="grid grid-cols-3 gap-4 p-10 w-full">
+            <div class="col-span-3 bg-ivory/10 border border-ivory/20 rounded-2xl p-6 backdrop-blur-sm">
+              <i data-lucide="microscope" class="w-7 h-7 text-peach mb-4"></i>
+              <p class="text-ivory font-display text-lg">Clinical precision, aesthetic sensibility</p>
+              <p class="text-ivory/60 text-sm mt-2 leading-relaxed">Every protocol is assessed, planned and reviewed by Dr. Harsh Tyagi before it ever reaches the treatment room.</p>
+            </div>
+            <div class="bg-ivory/10 border border-ivory/20 rounded-2xl p-5 backdrop-blur-sm flex flex-col items-start justify-center">
+              <i data-lucide="badge-check" class="w-5 h-5 text-peach mb-2"></i>
+              <p class="text-ivory/80 text-xs font-semibold">Proven Protocols</p>
+            </div>
+            <div class="bg-ivory/10 border border-ivory/20 rounded-2xl p-5 backdrop-blur-sm flex flex-col items-start justify-center">
+              <i data-lucide="shield-check" class="w-5 h-5 text-peach mb-2"></i>
+              <p class="text-ivory/80 text-xs font-semibold">Safety First</p>
+            </div>
+            <div class="bg-ivory/10 border border-ivory/20 rounded-2xl p-5 backdrop-blur-sm flex flex-col items-start justify-center">
+              <i data-lucide="sparkle" class="w-5 h-5 text-peach mb-2"></i>
+              <p class="text-ivory/80 text-xs font-semibold">Visible Results</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copy -->
+    <div class="order-1 lg:order-2">
+      <p class="eyebrow uppercase text-peach text-xs font-bold mb-4">The Clinical Edge</p>
+      <h2 class="font-display text-ivory text-4xl sm:text-5xl leading-tight tracking-tight">
+        Care that's <span class="italic text-peach">clinically proven</span>,<br class="hidden sm:block"> not just promised.
+      </h2>
+      <p class="mt-6 text-ivory/70 text-[17px] leading-relaxed max-w-lg">
+        Ambraja Skin Clinic operates within Harsh ENT Hospital, combining hospital-grade safety standards with a
+        calm, dedicated aesthetics practice. Every consultation, procedure and follow-up is led personally by
+        Dr. Harsh Tyagi.
+      </p>
+
+      <div class="mt-9 space-y-5">
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 rounded-full bg-ivory/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="check" class="w-4 h-4 text-peach"></i>
+          </div>
+          <p class="text-ivory/85 text-[15px]"><span class="font-semibold text-ivory">Clinically proven</span> — treatment protocols grounded in established dermatological practice.</p>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 rounded-full bg-ivory/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="check" class="w-4 h-4 text-peach"></i>
+          </div>
+          <p class="text-ivory/85 text-[15px]"><span class="font-semibold text-ivory">Safe &amp; effective</span> — every session planned with your skin type and history in mind.</p>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 rounded-full bg-ivory/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="check" class="w-4 h-4 text-peach"></i>
+          </div>
+          <p class="text-ivory/85 text-[15px]"><span class="font-semibold text-ivory">Doctor-led</span> — Dr. Harsh Tyagi personally oversees every treatment at Ambraja.</p>
+        </div>
+      </div>
+
+      <a href="#contact" class="mt-10 inline-flex items-center gap-2 bg-clay hover:bg-clay-600 text-ivory text-sm font-semibold px-7 py-4 rounded-full transition-colors focus-ring shadow-md">
+        Speak with the Clinic
+        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT / LOCATION / FOOTER ===================== -->
+<footer id="location" class="bg-[#132D2E] text-ivory pt-20 sm:pt-28">
+  <div id="contact" class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 grid lg:grid-cols-2 gap-14 pb-16">
+
+    <!-- Contact details -->
+    <div>
+      <p class="eyebrow uppercase text-peach text-xs font-bold mb-4">Visit Us</p>
+      <h2 class="font-display text-3xl sm:text-4xl leading-tight tracking-tight">
+        Begin your transformation at <span class="italic text-peach">Ambraja.</span>
+      </h2>
+
+      <div class="mt-10 space-y-7">
+        <div class="flex items-start gap-4">
+          <div class="w-11 h-11 rounded-full bg-ivory/10 flex items-center justify-center shrink-0">
+            <i data-lucide="map-pin" class="w-5 h-5 text-peach"></i>
+          </div>
+          <div>
+            <p class="text-xs eyebrow uppercase text-ivory/50 mb-1">Address</p>
+            <p class="text-[15px] text-ivory/90 leading-relaxed max-w-sm">
+              First Floor, Harsh ENT Hospital,<br> C-43, RDC, Rajnagar, Ghaziabad
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-11 h-11 rounded-full bg-ivory/10 flex items-center justify-center shrink-0">
+            <i data-lucide="phone-call" class="w-5 h-5 text-peach"></i>
+          </div>
+          <div>
+            <p class="text-xs eyebrow uppercase text-ivory/50 mb-1">Call to Book</p>
+            <a href="tel:+919217754696" class="text-[17px] font-semibold text-ivory hover:text-peach transition-colors focus-ring">
+              +91 92177 54696
+            </a>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-11 h-11 rounded-full bg-ivory/10 flex items-center justify-center shrink-0">
+            <i data-lucide="clock" class="w-5 h-5 text-peach"></i>
+          </div>
+          <div>
+            <p class="text-xs eyebrow uppercase text-ivory/50 mb-1">Working Hours</p>
+            <p class="text-[15px] text-ivory/90 leading-relaxed">Mon – Sat: 10:00 AM – 7:00 PM</p>
+            <p class="text-[15px] text-ivory/60">Sunday: By Appointment</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-11 h-11 rounded-full bg-ivory/10 flex items-center justify-center shrink-0">
+            <i data-lucide="stethoscope" class="w-5 h-5 text-peach"></i>
+          </div>
+          <div>
+            <p class="text-xs eyebrow uppercase text-ivory/50 mb-1">Lead Dermatologist</p>
+            <p class="text-[15px] text-ivory/90">Dr. Harsh Tyagi</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="tel:+919217754696"
+         class="pulse-cta mt-10 inline-flex items-center gap-2 bg-clay hover:bg-clay-600 text-ivory text-sm font-semibold px-7 py-4 rounded-full transition-colors focus-ring">
+        <i data-lucide="phone-call" class="w-4 h-4"></i>
+        Call to Book Your Consultation
+      </a>
+    </div>
+
+    <!-- Map -->
+    <div class="rounded-2xl overflow-hidden border border-ivory/10 h-[340px] sm:h-[420px] lg:h-auto">
+      <iframe
+        title="Ambraja Skin Clinic Location"
+        src="https://www.google.com/maps?q=Harsh+ENT+Hospital,+C-43,+RDC,+Rajnagar,+Ghaziabad&output=embed"
+        class="w-full h-full min-h-[340px] grayscale-[15%] contrast-[1.05]"
+        style="border:0;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+       iframe>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-ivory/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-7 flex flex-col sm:flex-row items-center justify-between gap-4 text-ivory/50 text-sm">
+      <div class="flex items-center gap-2">
+        <span class="w-7 h-7 rounded-full border border-ivory/20 flex items-center justify-center">
+          <span class="font-display italic text-ivory text-xs">A</span>
+        </span>
+        <span>© <span id="year"></span> Ambraja Skin Clinic. All rights reserved.</span>
+      </div>
+      <p>Associated with Harsh ENT Hospital, Ghaziabad</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
+  let open = false;
+
+  function setMenu(state) {
+    open = state;
+    menuBtn.setAttribute('aria-expanded', String(open));
+    if (open) {
+      mobileMenu.classList.remove('max-h-0', 'opacity-0');
+      mobileMenu.classList.add('max-h-[500px]', 'opacity-100');
+      menuIcon.setAttribute('data-lucide', 'x');
+    } else {
+      mobileMenu.classList.remove('max-h-[500px]', 'opacity-100');
+      mobileMenu.classList.add('max-h-0', 'opacity-0');
+      menuIcon.setAttribute('data-lucide', 'menu');
+    }
+    lucide.createIcons();
+  }
+
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setMenu(!open);
+  });
+
+  // Close dynamic drawer on clicking background or link items
+  document.querySelectorAll('.mobile-link').forEach(a => {
+    a.addEventListener('click', () => setMenu(false));
+  });
+  
+  document.addEventListener('click', (e) => {
+    if (open && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+      setMenu(false);
+    }
+  });
+</script>
+
+</body>
+</html>
